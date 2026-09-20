@@ -115,10 +115,10 @@ export const projects = [
     source: 'https://github.com/vibecodingmatt/rex-pursuit',
     action: 'Survive the chase',
     preview: 'assets/previews/rex-encounter.webm',
-    image: 'assets/images/rex-encounter-wide.webp',
-    thumbnail: 'assets/images/rex-encounter-card.webp',
-    alt: 'Actual Rex: Pursuit gameplay with a T. rex chasing the player’s Jeep through the jungle.',
-    imageLabel: 'In-game capture',
+    image: 'assets/images/rex-pursuit-keyart-v1-wide.webp',
+    thumbnail: 'assets/images/rex-pursuit-keyart-v1-card.webp',
+    alt: 'Rex: Pursuit artwork: a towering T. rex chases an open Jeep and its rear gunner through a sunlit jungle.',
+    imageLabel: 'Project artwork',
     previewLabel: 'Captured in the browser',
     tags: ['Three.js', 'Character animation', 'Web Audio'],
     facts: [
@@ -132,7 +132,7 @@ export const projects = [
     craft:
       'Layered locomotion, procedural gaze, mesh-aware impacts, timed target sequences, and synchronized creature audio support the chase. First-person and external cameras share one continuous encounter.',
     notice:
-      'Rex Encounter is published as Rex: Pursuit. The original creature study is also available in the project.',
+      'Rex Encounter is published as Rex: Pursuit. Promotional artwork introduces the chase; the preview shows the actual browser game.',
   },
   {
     id: 'approach-orlando',
