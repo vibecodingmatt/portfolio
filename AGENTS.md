@@ -7,6 +7,7 @@ This is Matt's standalone public portfolio at `https://vibecodingmatt.github.io/
 - Preserve stable project IDs and the `#project=id` direct-link format.
 - Keep launch links accurate. A source link should exist only if its target is publicly accessible.
 - Preserve clear distinctions between promotional artwork and actual gameplay. Do not invent career history, team sizes, results, employers, or development metrics.
+- Avoid em dashes in portfolio copy and metadata. Use natural sentence structure and punctuation instead.
 - Maintain keyboard access, modal focus restoration, browser history, reduced-motion behavior, and static launch links without JavaScript.
 - Keep fonts and media self-hosted. Load no video before a visitor opens a project; only one silent preview may play at a time. Release it on close.
 - Run `npm run build`, `npm run test:release`, and `npm test` for changes affecting the release. Browser checks cover desktop, mobile, accessibility, media, and recovery behavior.

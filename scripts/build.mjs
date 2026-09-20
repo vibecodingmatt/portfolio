@@ -23,4 +23,4 @@ for (const name of [
   '.nojekyll',
 ])
   await cp(path.join(root, name), path.join(dist, name), { recursive: true });
-console.log('Built static portfolio in dist/ — ready for /portfolio/ on GitHub Pages.');
+console.log('Built static portfolio in dist/. Ready for /portfolio/ on GitHub Pages.');
