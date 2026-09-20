@@ -8,9 +8,9 @@ export const projects = [
     type: 'Tower defense',
     platform: 'Browser game',
     color: '#d2b77b',
-    headline: 'The fences are down.\nYour move.',
+    headline: 'Tower defense.\nPrehistoric chaos.',
     description:
-      'Build your defenses, meet the prehistoric opposition, and turn one more wave into one more hour.',
+      'A dinosaur tower defense game. Build and upgrade your weapons, hold the line, and survive one more wave.',
     url: 'https://vibecodingmatt.github.io/dino-defense/',
     source: 'https://github.com/vibecodingmatt/dino-defense',
     action: 'Play the game',
@@ -26,9 +26,9 @@ export const projects = [
       ['33', 'dinosaurs'],
       ['100', 'waves per zone'],
     ],
-    hook: 'A strategy game built around the irresistible promise of one more wave.',
+    hook: 'A dinosaur tower defense game built around the irresistible promise of one more wave.',
     challenge:
-      'Make a deep defense game feel immediate: readable threats, meaningful upgrades, and a reason to return after a run ends.',
+      'Make deep tower defense feel immediate: readable threats, meaningful upgrades, and a reason to return after a run ends.',
     craft:
       'Wave progression, distinct dinosaur behaviors, weapon upgrades, and permanent DNA research work together. Responsive controls and portable saves let the experience travel between desktop and phone.',
     notice: 'Artwork introduces the world; the preview shows the actual browser game.',
@@ -38,12 +38,12 @@ export const projects = [
     title: 'Dino Defense',
     edition: 'Roblox',
     category: 'games',
-    type: '3D island defense',
+    type: '3D tower defense',
     platform: 'Roblox experience',
     color: '#edbd60',
-    headline: 'A bigger island.\nA closer encounter.',
+    headline: 'Tower defense.\nFrom the front line.',
     description:
-      'Step inside the defense line. A dinosaur-filled island reimagined as a world you can explore together.',
+      'A 3D tower defense game on Roblox. Team up, build your defenses, and face dinosaur waves from inside the action.',
     url: 'https://www.roblox.com/games/98883356694296/Dino-Defense',
     source: null,
     action: 'Play on Roblox',
@@ -59,9 +59,9 @@ export const projects = [
       ['Co-op', 'shared defense'],
       ['Luau', 'gameplay systems'],
     ],
-    hook: 'The same defense fantasy, rebuilt for a world you can stand inside.',
+    hook: 'Cooperative tower defense, rebuilt as a world you can stand inside.',
     challenge:
-      'Translate a browser strategy game into an embodied, shared experience with readable placement, responsive combat, and a strong sense of scale.',
+      'Translate a browser tower defense game into an embodied, shared experience with readable placement, responsive combat, and a strong sense of scale.',
     craft:
       'A filesystem-first Luau project brings together procedural environments, shared rewards, upgradeable defenses, and custom creature work. The browser and Roblox editions develop as distinct experiences.',
     notice:
