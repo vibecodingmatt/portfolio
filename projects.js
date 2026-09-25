@@ -203,4 +203,4 @@ export const projects = [
       'The short preview is silent. Open the full music video on YouTube for the song and complete experience.',
   },
 ];
-export const featuredId = 'war-survival';
+export const featuredId = 'rex-encounter';
