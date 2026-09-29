@@ -2,18 +2,20 @@
 
 **[Explore the portfolio](https://vibecodingmatt.github.io/portfolio/)**
 
-A curated showcase of games, interactive worlds, and creative experiments. Built around a cinematic project selector, a filterable collection, and focused project previews that connect the idea, craft, and live experience.
+A curated showcase of games, interactive worlds, Windows apps, and creative experiments. Built around a cinematic project selector, a filterable collection, and focused project previews that connect the idea, craft, and live experience.
 
 ## Featured work
 
-| Project                      | Experience                                                                 |
-| ---------------------------- | -------------------------------------------------------------------------- |
-| Dino Defense · Browser       | [Play](https://vibecodingmatt.github.io/dino-defense/)                     |
-| Dino Defense · Roblox        | [Play on Roblox](https://www.roblox.com/games/98883356694296/Dino-Defense) |
-| War: Survival                | [Play](https://vibecodingmatt.github.io/war-survival/)                     |
-| Rex Encounter · Rex: Pursuit | [Play](https://vibecodingmatt.github.io/rex-pursuit/)                      |
-| Approach Orlando             | [Explore](https://vibecodingmatt.github.io/approach-orlando/)              |
-| Matt’s Angels                | [Watch the music video](https://www.youtube.com/watch?v=6ZtGgA6IDdE)       |
+| Project                      | Experience                                                                                         |
+| ---------------------------- | -------------------------------------------------------------------------------------------------- |
+| Dino Defense · Browser       | [Play](https://vibecodingmatt.github.io/dino-defense/)                                             |
+| Dino Defense · Roblox        | [Play on Roblox](https://www.roblox.com/games/98883356694296/Dino-Defense)                         |
+| War: Survival                | [Play](https://vibecodingmatt.github.io/war-survival/)                                             |
+| Rex Encounter · Rex: Pursuit | [Play](https://vibecodingmatt.github.io/rex-pursuit/)                                              |
+| Approach Orlando             | [Explore](https://vibecodingmatt.github.io/approach-orlando/)                                      |
+| Matt’s Angels                | [Watch the music video](https://www.youtube.com/watch?v=6ZtGgA6IDdE)                               |
+| TubeClock                    | [Windows download & install guide](https://vibecodingmatt.github.io/portfolio/apps.html#tubeclock) |
+| BloxClock                    | [App showcase](https://vibecodingmatt.github.io/portfolio/apps.html#bloxclock)                     |
 
 ## Run locally
 
@@ -46,7 +48,7 @@ The build is a self-contained static site in `dist/`, using relative asset paths
 
 ## Add or update a project
 
-Edit `projects.js`: titles, descriptions, categories, facts, links, media, and build notes are in one place. Add optimized artwork to `assets/images/` and an optional silent WebM excerpt to `assets/previews/`. Preserve each project's `id` to keep shared `#project=…` URLs working. When adding a seventh project, also update the static collection counts and intro copy in `index.html` and the release count check.
+Edit `projects.js`: titles, descriptions, categories, facts, links, media, and build notes are in one place. Add optimized artwork to `assets/images/` and an optional silent WebM excerpt to `assets/previews/`. Preserve each project's `id` to keep shared `#project=…` URLs working. When adding projects, also update the static collection counts and intro copy in `index.html`, the release count check, and any category or selector expectations in the browser checks.
 
 Set `source` to `null` when no public repository exists. Do not expose unpublished project code simply to populate a source link.
 
@@ -68,7 +70,15 @@ Local screenshots and verification reports are written to ignored `artifacts/`. 
 
 The public repository is `vibecodingmatt/portfolio`. Set GitHub Pages to **GitHub Actions**. Pushes to `main` build, validate assets and metadata, run the browser checks, then deploy `dist/` through `.github/workflows/pages.yml`.
 
+## Windows app downloads
+
+`apps.html` is the static app and installation guide, available without JavaScript. TubeClock 1.3.0 is distributed as the original `TubeClock-win-x64.zip` through this repository’s `tubeclock-v1.3.0` GitHub release. The package includes the executable, installer, uninstaller, and quick-start instructions; app source and personal settings are not published. The portable ZIP stays out of Git history and the Pages build.
+
+BloxClock is a showcase only for now. Its existing installer unconditionally recreates the Windows Run registry key with `New-Item -Force`, which can remove other startup entries. Do not add a public download until its separate app project has a corrected, verified package. This portfolio update does not modify either app project.
+
 ## Media provenance
+
+The TubeClock and BloxClock artwork uses their original app icons in SVG clock-face compositions. These are labeled as app artwork, not screenshots of the apps.
 
 The site uses artwork from the featured projects. Promotional artwork and actual gameplay are labeled separately. Browser clips were captured from the working games in disposable sessions; the Dino Defense clip stages a representative combat scene. Rex's cover is AI-generated promotional artwork based on the game's jungle chase, open Jeep, mounted gun, and brown T. rex. Its [source artwork and generation prompt](art/rex-pursuit-keyart-v2.md) are preserved, and its video preview remains an actual game capture. The Roblox presentation uses its promotional artwork and links directly to the supplied public experience. The silent Matt’s Angels excerpt comes from the project's animated video material; the full song and video are linked on YouTube.
 

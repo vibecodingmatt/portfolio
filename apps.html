@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#171817" />
+    <title>TubeClock & BloxClock | Matt’s Windows apps</title>
+    <meta
+      name="description"
+      content="Small Windows apps for family screen time. Download TubeClock for YouTube limits and discover BloxClock for Roblox playtime."
+    />
+    <link rel="canonical" href="https://vibecodingmatt.github.io/portfolio/apps.html" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#apps">Skip to the apps</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="./" aria-label="Matt, portfolio home"
+        ><span class="brand-symbol" aria-hidden="true">m<span>·</span></span
+        ><span>MATT<span class="wordmark-caption">A CREATIVE PLAYGROUND</span></span></a
+      >
+      <nav aria-label="Main navigation"><a href="./#work">← All projects</a></nav>
+    </header>
+    <main class="app-guide wrap" id="apps">
+      <div class="app-guide-intro">
+        <p class="eyebrow">SMALL APPS / EVERYDAY ROUTINES</p>
+        <h1>A little structure.<br /><em>More room for life.</em></h1>
+        <p>
+          Two Windows apps for family screen time. Clear daily limits, a warning before time runs
+          out, and parent controls for the days that need a little flexibility.
+        </p>
+        <div class="app-guide-links">
+          <a class="text-link" href="#tubeclock">TubeClock ↓</a
+          ><a class="text-link" href="#bloxclock">BloxClock ↓</a>
+        </div>
+      </div>
+      <article class="app-guide-card" id="tubeclock" aria-labelledby="tubeclock-title">
+        <div class="app-guide-art">
+          <img
+            src="./assets/images/tubeclock-card.svg"
+            alt="TubeClock’s red play-button and clock icon."
+            width="720"
+            height="450"
+          /><span class="eyebrow">YOUTUBE TIME, ON YOUR TERMS.</span>
+        </div>
+        <div class="app-guide-copy">
+          <p class="eyebrow">WINDOWS x64 · VERSION 1.3.0</p>
+          <h2 id="tubeclock-title">TubeClock</h2>
+          <p>
+            Set a YouTube budget for each day of the week. TubeClock watches for YouTube tabs, shows
+            a final countdown, and closes YouTube when time is up.
+          </p>
+          <ul>
+            <li>Separate daily limits, parent-controlled pauses, and bonus minutes.</li>
+            <li>
+              PIN-protected settings, custom closing messages, and a 30-day history of when time ran
+              out.
+            </li>
+            <li>
+              Settings and usage stay on the computer. No account, cloud service, or separate .NET
+              installation.
+            </li>
+          </ul>
+          <a
+            class="button button-accent"
+            id="tubeclock-download"
+            href="https://github.com/vibecodingmatt/portfolio/releases/download/tubeclock-v1.3.0/TubeClock-win-x64.zip"
+            >Download for Windows <span aria-hidden="true">↓</span></a
+          >
+          <p class="app-download-meta">ZIP · 66.2 MB · 64-bit Windows · Unsigned app</p>
+          <h3>Install in a few steps</h3>
+          <ol>
+            <li>Sign in to the Windows account whose YouTube time you want to limit.</li>
+            <li>Download the ZIP and extract the entire folder.</li>
+            <li>
+              Open <code>Install-TubeClock.cmd</code>, review the schedule, and create a parent PIN.
+            </li>
+            <li>
+              Save your settings. TubeClock stays in the notification area and starts at sign-in.
+            </li>
+          </ol>
+          <p class="app-guide-note">
+            No administrator access is needed. Windows may show a SmartScreen prompt because the app
+            is not code-signed. Only run a download you trust.
+          </p>
+          <details>
+            <summary>Before you install</summary>
+            <p>
+              TubeClock looks for YouTube in Chrome, Edge, Firefox, Brave, Opera, Vivaldi, and
+              Chromium. By default, a YouTube tab uses time even in the background; parent controls
+              can change counting to the tab on screen.
+            </p>
+            <p>
+              At the limit, it tries to close just the YouTube tab. If that fails, it can close the
+              browser window or end the browser process. It is a family time-limit tool, not a
+              tamper-resistant content blocker, and embedded videos on other websites may not be
+              detected.
+            </p>
+            <p>
+              To uninstall, use the tray menu and parent PIN, or the included
+              <code>Uninstall-TubeClock.cmd</code>. Uninstalling removes this Windows user’s
+              settings and usage.
+            </p>
+            <p>
+              <a
+                class="text-link"
+                href="https://github.com/vibecodingmatt/portfolio/releases/tag/tubeclock-v1.3.0"
+                >Release notes & checksum ↗</a
+              >
+            </p>
+          </details>
+        </div>
+      </article>
+      <article class="app-guide-card" id="bloxclock" aria-labelledby="bloxclock-title">
+        <div class="app-guide-art">
+          <img
+            src="./assets/images/bloxclock-card.svg"
+            alt="BloxClock’s purple building-block clock icon."
+            width="720"
+            height="450"
+            loading="lazy"
+          /><span class="eyebrow">ROBLOX TIME, ON YOUR TERMS.</span>
+        </div>
+        <div class="app-guide-copy">
+          <p class="eyebrow">WINDOWS APP · PROJECT SHOWCASE</p>
+          <h2 id="bloxclock-title">BloxClock</h2>
+          <p>
+            A daily Roblox budget that carries across play sessions. A final countdown gives players
+            a moment to finish before Roblox closes at the limit.
+          </p>
+          <ul>
+            <li>A separate schedule for every day, with time resetting at midnight.</li>
+            <li>Parent-controlled pauses and reward minutes that apply only to today.</li>
+            <li>A clear dashboard, PIN-protected settings, and local usage storage.</li>
+          </ul>
+          <p class="app-availability">
+            <span class="small-dot"></span> Public download not available yet.
+          </p>
+          <p>
+            BloxClock is included here as a project showcase. There is currently no public installer
+            linked from this portfolio.
+          </p>
+          <a class="text-link" href="./#project=bloxclock">Explore the project ↗</a>
+        </div>
+      </article>
+    </main>
+    <footer class="site-footer wrap">
+      <a class="footer-brand" href="./">MATT<span>✳</span></a
+      ><span>INDEPENDENT IDEAS. EVERYDAY TOOLS.</span><a href="#apps">Back to the top ↑</a>
+    </footer>
+  </body>
+</html>

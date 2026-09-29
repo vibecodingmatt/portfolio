@@ -482,7 +482,7 @@ a span[aria-hidden] {
 }
 .project-selector {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 15px;
   margin-top: 19px;
 }
@@ -1210,6 +1210,118 @@ dialog::backdrop {
   font-size: 13px;
   padding-bottom: 24px;
   color: var(--muted);
+}
+.app-guide {
+  padding-block: 55px 90px;
+}
+.app-guide-intro {
+  max-width: 720px;
+  margin-bottom: 64px;
+}
+.app-guide h1 {
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  margin: 18px 0 24px;
+}
+.app-guide h1 em {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+.app-guide-intro > p:not(.eyebrow),
+.app-guide-copy > p,
+.app-guide-copy li,
+.app-guide-copy details p {
+  color: var(--muted);
+  line-height: 1.9;
+}
+.app-guide-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 22px;
+}
+.app-guide-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(24px, 4vw, 64px);
+  padding-block: 48px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 30px;
+}
+.app-guide-art img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  margin-bottom: 20px;
+}
+.app-guide-copy h2 {
+  font-size: 36px;
+  letter-spacing: -0.04em;
+  margin: 10px 0 16px;
+}
+.app-guide-copy h3 {
+  font-size: 18px;
+  margin-top: 30px;
+}
+.app-guide-copy ul,
+.app-guide-copy ol {
+  padding-left: 22px;
+  margin-block: 20px;
+}
+.app-guide-copy li + li {
+  margin-top: 8px;
+}
+.app-guide-copy .button {
+  font-size: 13px;
+  margin-top: 10px;
+}
+.app-guide-copy .app-download-meta,
+.app-guide-copy .app-guide-note {
+  font-size: 12px;
+  margin-top: 12px;
+}
+.app-guide-copy details {
+  margin-top: 25px;
+  border-top: 1px solid var(--line);
+  padding-top: 15px;
+}
+.app-guide-copy details summary {
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 44px;
+  padding-block: 9px;
+}
+.app-guide-copy details p {
+  margin-block: 15px;
+}
+.app-guide-copy code {
+  overflow-wrap: anywhere;
+  color: var(--ink);
+  font-size: 0.9em;
+}
+.app-guide-copy .app-availability {
+  color: var(--ink);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 15px;
+  margin-block: 25px 16px;
+  border-radius: 4px;
+}
+.app-availability .small-dot {
+  margin-right: 8px;
+}
+@media (max-width: 800px) {
+  .app-guide-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .app-guide-art {
+    max-width: 520px;
+  }
+  .app-guide-intro {
+    margin-bottom: 35px;
+  }
 }
 @media (min-width: 1600px) {
   .intro {

@@ -37,7 +37,7 @@ try {
   await page.goto(base);
   await page.evaluate(() => document.fonts.ready);
   assert.match(await page.title(), /Matt/);
-  assert.equal(await page.locator('.project-card').count(), 6);
+  assert.equal(await page.locator('.project-card').count(), projects.length);
   assert.equal(
     requests.filter((u) => /\.(webm|mp4)/.test(u)).length,
     0,
@@ -86,7 +86,8 @@ try {
     ['games', 4],
     ['worlds', 1],
     ['music', 1],
-    ['all', 6],
+    ['apps', 2],
+    ['all', projects.length],
   ]) {
     await page.locator(`[data-filter="${category}"]`).click();
     assert.equal(await page.locator('.project-card:visible').count(), count);
@@ -115,7 +116,7 @@ try {
   await page.locator('[data-feature="dino-browser"]').focus();
   await page.keyboard.press('ArrowLeft');
   assert.equal(
-    await page.locator('[data-feature="matts-angels"]').getAttribute('aria-pressed'),
+    await page.locator('[data-feature="bloxclock"]').getAttribute('aria-pressed'),
     'true',
   );
   await page.keyboard.press('Home');
@@ -125,7 +126,7 @@ try {
   );
   await page.keyboard.press('End');
   assert.equal(
-    await page.locator('[data-feature="matts-angels"]').getAttribute('aria-pressed'),
+    await page.locator('[data-feature="bloxclock"]').getAttribute('aria-pressed'),
     'true',
   );
   report.checks.push('Filters, featured selection, wrapping and arrow/Home/End keyboard controls');
@@ -148,14 +149,12 @@ try {
         null,
         { timeout: 20000 },
       );
-      const video = await page
-        .locator('dialog video')
-        .evaluate((v) => ({
-          muted: v.muted,
-          width: v.videoWidth,
-          height: v.videoHeight,
-          time: v.currentTime,
-        }));
+      const video = await page.locator('dialog video').evaluate((v) => ({
+        muted: v.muted,
+        width: v.videoWidth,
+        height: v.videoHeight,
+        time: v.currentTime,
+      }));
       assert.ok(video.muted && video.width > 0 && video.height > 0);
       report.previews.push({ id: p.id, ...video });
     } else assert.equal(await page.locator('dialog video').count(), 0);
@@ -297,12 +296,22 @@ try {
   const nojs = await browser.newContext({ javaScriptEnabled: false });
   const staticPage = await nojs.newPage();
   await staticPage.goto(base);
-  assert.equal(await staticPage.locator('.project-card').count(), 6);
-  assert.equal(await staticPage.locator('.card-outbound').count(), 6);
-  assert.equal(await staticPage.locator('.card-static-image:visible').count(), 6);
+  assert.equal(await staticPage.locator('.project-card').count(), projects.length);
+  assert.equal(await staticPage.locator('.card-outbound').count(), projects.length);
+  assert.equal(await staticPage.locator('.card-static-image:visible').count(), projects.length);
+  await staticPage.goto(base + 'apps.html#tubeclock');
+  assert.match(
+    await staticPage.locator('#tubeclock-download').getAttribute('href'),
+    /releases\/download\/tubeclock-v1\.3\.0\/TubeClock-win-x64\.zip$/,
+  );
+  assert.match(
+    await staticPage.locator('#bloxclock').innerText(),
+    /Public download not available yet/,
+  );
+  assert.equal(await staticPage.locator('#bloxclock a[href$=".zip"]').count(), 0);
   await nojs.close();
   report.checks.push(
-    'Reduced motion with explicit playback and six fully linked projects without JavaScript',
+    'Reduced motion with explicit playback and eight fully linked projects without JavaScript',
   );
 
   await page.setViewportSize({ width: 1440, height: 900 });
@@ -324,6 +333,24 @@ try {
   );
   report.checks.push(
     'Clipboard-denied fallback and failed-preview recovery with launch link preserved',
+  );
+  await page.goto(base + 'apps.html');
+  await page.locator('summary').click();
+  await page.evaluate(() => document.fonts.ready);
+  await page.screenshot({ path: 'artifacts/apps-desktop.png', fullPage: true });
+  await checkA11y('Windows app guide');
+  for (const width of [390, 320]) {
+    await page.setViewportSize({ width, height: 844 });
+    assert.equal(
+      await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
+      true,
+      `App guide fits ${width}`,
+    );
+  }
+  await page.screenshot({ path: 'artifacts/apps-mobile.png', fullPage: true });
+  await checkA11y('Mobile app guide');
+  report.checks.push(
+    'App install guide, truthful download availability, mobile layout and no-JavaScript download access',
   );
   assert.deepEqual(errors, []);
   assert.deepEqual(failedAssets, []);

@@ -15,6 +15,7 @@ await writeFile(
 );
 for (const name of [
   'style.css',
+  'apps.html',
   'main.js',
   'projects.js',
   'assets',

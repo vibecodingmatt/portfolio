@@ -202,5 +202,73 @@ export const projects = [
     notice:
       'The short preview is silent. Open the full music video on YouTube for the song and complete experience.',
   },
+  {
+    id: 'tubeclock',
+    title: 'TubeClock',
+    edition: '',
+    category: 'apps',
+    type: 'YouTube time limits',
+    platform: 'Windows app',
+    color: '#ffaaa0',
+    headline: 'YouTube time.\nOn your terms.',
+    description:
+      'A little structure for screen time. Set daily YouTube limits, give bonus minutes, and make time to switch off.',
+    url: 'https://vibecodingmatt.github.io/portfolio/apps.html#tubeclock',
+    source: null,
+    action: 'Get TubeClock',
+    preview: null,
+    image: 'assets/images/tubeclock-wide.svg',
+    thumbnail: 'assets/images/tubeclock-card.svg',
+    alt: 'TubeClock app artwork: a red play button with a small white clock, surrounded by clock-face rings.',
+    imageLabel: 'App artwork',
+    previewLabel: 'App artwork',
+    tags: ['C#', '.NET / WPF', 'Local-first'],
+    facts: [
+      ['7', 'daily limits'],
+      ['PIN', 'parent controls'],
+      ['Local', 'settings & usage'],
+    ],
+    hook: 'YouTube time, on your terms. A small Windows utility for everyday family routines.',
+    challenge:
+      'Make screen-time boundaries visible and predictable, with a weekly schedule, a clear countdown, and room for a parent to pause or reward extra time.',
+    craft:
+      'Browser accessibility information helps find YouTube tabs, including background tabs. A tray app brings together daily budgets, bonus time, PIN-protected settings, custom closing messages, and a history of when the limit was reached.',
+    notice:
+      'Available for Windows x64. The install guide includes the portable ZIP and setup steps. No account or separate .NET installation is required.',
+  },
+  {
+    id: 'bloxclock',
+    title: 'BloxClock',
+    edition: '',
+    category: 'apps',
+    type: 'Roblox time limits',
+    platform: 'Windows app',
+    color: '#ceacff',
+    headline: 'Roblox time.\nRoom for real life.',
+    description:
+      'Playtime with a plan. Daily Roblox limits, a friendly final countdown, and parent controls that leave room for rewards.',
+    url: 'https://vibecodingmatt.github.io/portfolio/apps.html#bloxclock',
+    source: null,
+    action: 'About BloxClock',
+    preview: null,
+    image: 'assets/images/bloxclock-wide.svg',
+    thumbnail: 'assets/images/bloxclock-card.svg',
+    alt: 'BloxClock app artwork: a purple building-block clock with bright coral hands, surrounded by clock-face rings.',
+    imageLabel: 'App artwork',
+    previewLabel: 'App artwork',
+    tags: ['C#', '.NET / WPF', 'Local-first'],
+    facts: [
+      ['7', 'daily limits'],
+      ['Bonus', 'reward minutes'],
+      ['PIN', 'parent controls'],
+    ],
+    hook: 'Roblox time, on your terms. A clear daily budget with a little flexibility built in.',
+    challenge:
+      'Help families make Roblox time predictable, with limits that add up across sessions and a warning that gives players time to finish.',
+    craft:
+      'A Windows tray app tracks Roblox activity, carries the daily budget across launches, and closes Roblox at the limit. The dashboard combines a weekly schedule, remaining time, parent-controlled pauses, and rewards that expire at midnight.',
+    notice:
+      'Built for Windows. BloxClock is showcased here; a public installer is not available yet.',
+  },
 ];
 export const featuredId = 'rex-encounter';

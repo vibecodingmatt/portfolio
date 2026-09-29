@@ -32,6 +32,7 @@ export function createServer({ directory = root, base = '/portfolio/' } = {}) {
       if (
         ![
           'index.html',
+          'apps.html',
           'style.css',
           'main.js',
           'projects.js',
