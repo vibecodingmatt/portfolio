@@ -4,7 +4,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { chromium } from 'playwright-core';
 import AxeBuilder from '@axe-core/playwright';
 import { createServer } from '../scripts/serve.mjs';
-import { projects } from '../projects.js';
+import { projects, featuredId } from '../projects.js';
 
 await mkdir('artifacts', { recursive: true });
 let server;
@@ -38,6 +38,7 @@ try {
   await page.evaluate(() => document.fonts.ready);
   assert.match(await page.title(), /Matt/);
   assert.equal(await page.locator('.project-card').count(), projects.length);
+  assert.equal(await page.locator('#feature').getAttribute('data-project'), featuredId);
   assert.equal(
     requests.filter((u) => /\.(webm|mp4)/.test(u)).length,
     0,
@@ -48,19 +49,21 @@ try {
     'No third-party requests on initial load',
   );
   await page
-    .locator('.project-card img')
+    .locator('img[loading="lazy"]')
     .evaluateAll((imgs) => imgs.forEach((i) => (i.loading = 'eager')));
   await page.evaluate(async () => {
     await Promise.all([...document.images].map((i) => i.decode()));
   });
   await page.screenshot({ path: 'artifacts/desktop.png', fullPage: true });
   await page.screenshot({ path: 'artifacts/desktop-first-screen.png' });
-  const social = await page.evaluate(async () => {
+  const social = await page.evaluate(async (base) => {
     const i = new Image();
-    i.src = './assets/images/social.jpg';
+    i.src = document
+      .querySelector('meta[property="og:image"]')
+      .content.replace('https://vibecodingmatt.github.io/portfolio/', base);
     await i.decode();
     return [i.naturalWidth, i.naturalHeight];
-  });
+  }, base);
   assert.deepEqual(social, [1200, 630]);
   const checkA11y = async (label) => {
     const result = await new AxeBuilder({ page })
@@ -84,7 +87,7 @@ try {
   await checkA11y('Desktop landing');
   for (const [category, count] of [
     ['games', 4],
-    ['worlds', 1],
+    ['worlds', 2],
     ['music', 1],
     ['apps', 2],
     ['all', projects.length],
@@ -110,10 +113,10 @@ try {
   }
   await page.locator('#feature-next').click();
   assert.equal(
-    await page.locator('[data-feature="dino-browser"]').getAttribute('aria-pressed'),
+    await page.locator('[data-feature="universal-orlando"]').getAttribute('aria-pressed'),
     'true',
   );
-  await page.locator('[data-feature="dino-browser"]').focus();
+  await page.locator('[data-feature="universal-orlando"]').focus();
   await page.keyboard.press('ArrowLeft');
   assert.equal(
     await page.locator('[data-feature="bloxclock"]').getAttribute('aria-pressed'),
@@ -121,7 +124,7 @@ try {
   );
   await page.keyboard.press('Home');
   assert.equal(
-    await page.locator('[data-feature="dino-browser"]').getAttribute('aria-pressed'),
+    await page.locator('[data-feature="universal-orlando"]').getAttribute('aria-pressed'),
     'true',
   );
   await page.keyboard.press('End');
@@ -177,6 +180,17 @@ try {
   }
   report.checks.push(
     'All project dialogs, accurate launch links, playable silent previews, focus containment, Escape and media cleanup',
+  );
+  const filmButton = page.locator('.universal-film-button');
+  await filmButton.click();
+  assert.equal(new URL(page.url()).hash, '#project=universal-orlando');
+  await page.waitForFunction(() => document.querySelector('dialog video')?.currentTime > 0.2);
+  await page.keyboard.press('Escape');
+  await page.waitForFunction(() => !location.hash.startsWith('#project='));
+  assert.equal(await filmButton.evaluate((el) => document.activeElement === el), true);
+  assert.equal(await page.locator('video').count(), 0);
+  report.checks.push(
+    'Universal film feature opens, plays, releases video and restores keyboard focus',
   );
   await page.locator('.card-details-button[data-open="war-survival"]').click();
   await page.locator('#dialog-next').click();
@@ -240,7 +254,7 @@ try {
     await page.locator('[data-feature="war-survival"]').click();
     if (width === 390) {
       await page
-        .locator('.project-card img')
+        .locator('img[loading="lazy"]')
         .evaluateAll((imgs) => imgs.forEach((i) => (i.loading = 'eager')));
       await page.evaluate(async () => {
         await Promise.all([...document.images].map((i) => i.decode()));
@@ -311,7 +325,7 @@ try {
   assert.equal(await staticPage.locator('#bloxclock a[href$=".zip"]').count(), 0);
   await nojs.close();
   report.checks.push(
-    'Reduced motion with explicit playback and eight fully linked projects without JavaScript',
+    'Reduced motion with explicit playback and nine fully linked projects without JavaScript',
   );
 
   await page.setViewportSize({ width: 1440, height: 900 });
@@ -329,7 +343,7 @@ try {
   await page.waitForSelector('.media-fallback');
   assert.equal(
     await page.locator('.dialog-actions .button-accent').getAttribute('href'),
-    projects[2].url,
+    projects.find((p) => p.id === 'war-survival').url,
   );
   report.checks.push(
     'Clipboard-denied fallback and failed-preview recovery with launch link preserved',

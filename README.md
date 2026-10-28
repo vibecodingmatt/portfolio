@@ -8,6 +8,7 @@ A curated showcase of games, interactive worlds, Windows apps, and creative expe
 
 | Project                      | Experience                                                                                         |
 | ---------------------------- | -------------------------------------------------------------------------------------------------- |
+| Universal Orlando 3D         | [Explore the park and Halloween mode](https://vibecodingmatt.github.io/universal-orlando/)         |
 | Dino Defense · Browser       | [Play](https://vibecodingmatt.github.io/dino-defense/)                                             |
 | Dino Defense · Roblox        | [Play on Roblox](https://www.roblox.com/games/98883356694296/Dino-Defense)                         |
 | War: Survival                | [Play](https://vibecodingmatt.github.io/war-survival/)                                             |
@@ -62,7 +63,7 @@ npm test
 
 Windows tests use installed Google Chrome. On other systems, run `npx playwright-core install --with-deps chromium` once. Set `CHROME_PATH` for another Chromium executable. Set `TEST_URL` to run the same browser checks against a deployed portfolio, including its trailing slash.
 
-Browser checks cover nine viewport sizes, real touch input, all filters and featured selections, five playable previews, modal focus and cleanup, browser history, deep links, clipboard denial, failed media, reduced motion, and no-JavaScript access. Axe checks WCAG A/AA rules on desktop, mobile, and every project dialog. Automated checks do not replace testing on physical devices or a manual accessibility audit.
+Browser checks cover nine viewport sizes, real touch input, all filters and featured selections, six playable previews, modal focus and cleanup, browser history, deep links, clipboard denial, failed media, reduced motion, and no-JavaScript access. Axe checks WCAG A/AA rules on desktop, mobile, and every project dialog. Automated checks do not replace testing on physical devices or a manual accessibility audit.
 
 Local screenshots and verification reports are written to ignored `artifacts/`. The release build includes only public site files and media.
 
@@ -77,6 +78,8 @@ The public repository is `vibecodingmatt/portfolio`. Set GitHub Pages to **GitHu
 BloxClock is a showcase only for now. Its existing installer unconditionally recreates the Windows Run registry key with `New-Item -Force`, which can remove other startup entries. Do not add a public download until its separate app project has a corrected, verified package. This portfolio update does not modify either app project.
 
 ## Media provenance
+
+The October 28 Universal Orlando 3D feature uses [AI-generated promotional key art and its recorded prompt](art/universal-orlando-keyart-v1.md) for the opening spotlight and sharing image. Its film and three scene stills are actual in-engine captures from disposable local sessions, with authored camera moves and staged attraction/monster timing. The silent reel includes the globe, entrance, Diagon Alley, dragon fire, the train, and Halloween mode. Captures, masters, and verification records stay in ignored `artifacts/universal-20261028/`. Universal is an independent, non-commercial fan experience and is not affiliated with or endorsed by Universal.
 
 The TubeClock and BloxClock artwork uses their original app icons in SVG clock-face compositions. These are labeled as app artwork, not screenshots of the apps.
 

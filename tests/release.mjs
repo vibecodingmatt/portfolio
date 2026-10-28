@@ -1,8 +1,22 @@
 import assert from 'node:assert/strict';
 import { readFile, readdir, stat } from 'node:fs/promises';
-import { projects } from '../projects.js';
+import { projects, featuredId } from '../projects.js';
 const html = await readFile('dist/index.html', 'utf8');
-assert.equal(projects.length, 8);
+assert.equal(projects.length, 9);
+assert.equal(featuredId, 'universal-orlando');
+assert.match(html, /id="feature"\s+data-project="universal-orlando"/);
+assert.match(
+  html,
+  /id="feature-launch"\s+href="https:\/\/vibecodingmatt.github.io\/universal-orlando\/"/,
+);
+for (const asset of [
+  'universal-dragon.webp',
+  'universal-train.webp',
+  'universal-halloween.webp',
+  'universal-orlando-social-v1.jpg',
+]) {
+  assert.ok((await stat('dist/assets/images/' + asset)).size > 1000);
+}
 assert.equal(new Set(projects.map((p) => p.id)).size, projects.length);
 assert.equal((html.match(/class="project-card"/g) || []).length, projects.length);
 assert.ok(!html.includes('<!-- PROJECT_'));
@@ -53,5 +67,5 @@ for (const name of [
 ])
   await stat('dist/' + name);
 console.log(
-  'Release checks passed: eight projects, exact launch links, complete media, social metadata, relative assets, clean static build.',
+  'Release checks passed: nine projects, Universal premiere, exact launch links, complete media, social metadata, relative assets, clean static build.',
 );

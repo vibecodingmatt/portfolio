@@ -40,7 +40,7 @@ function setFeature(index, focusSelector = false) {
     `${esc(p.action)} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>`;
   $('#feature-preview').dataset.open = p.id;
   $('#feature-preview').innerHTML =
-    `<span aria-hidden="true">${p.preview ? '▷' : '+'}</span> ${p.preview ? 'Take a peek' : 'The details'}`;
+    `<span aria-hidden="true">${p.preview ? '▷' : '+'}</span> ${esc(p.previewAction || (p.preview ? 'Take a peek' : 'The details'))}`;
   $('#feature-credit').textContent =
     p.imageLabel.toUpperCase() + (p.preview ? ' · PREVIEW INSIDE' : '');
   $('#feature-number').innerHTML =

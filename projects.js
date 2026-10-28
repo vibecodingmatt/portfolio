@@ -1,6 +1,41 @@
 // The portfolio's project catalog. Add new work here, then run npm run build.
 export const projects = [
   {
+    id: 'universal-orlando',
+    title: 'Universal Orlando',
+    edition: '3D',
+    category: 'worlds',
+    type: 'Explore + Halloween mode',
+    platform: 'Interactive world',
+    color: '#ffd09a',
+    headline: 'Wonder awaits.\nHalloween takes over.',
+    description:
+      'Step beyond the globe into a park full of possibilities. Dragon fire, Diagon Alley, a moving train, and a very different kind of Halloween.',
+    url: 'https://vibecodingmatt.github.io/universal-orlando/',
+    source: null,
+    action: 'Enter the experience',
+    previewAction: 'Watch the film',
+    preview: 'assets/previews/universal-orlando-v1.webm',
+    image: 'assets/images/universal-orlando-keyart-v1-wide.webp',
+    thumbnail: 'assets/images/universal-orlando-keyart-v1-card.webp',
+    alt: 'Cinematic promotional artwork: the illuminated Universal globe surrounded by dragon fire, Frankenstein, a werewolf, and a mummy.',
+    imageLabel: 'Promotional artwork',
+    previewLabel: 'In-engine highlight film · 39s',
+    tags: ['Three.js', 'World building', 'Halloween mode'],
+    facts: [
+      ['1:1', 'park scale'],
+      ['Walk / fly', 'your perspective'],
+      ['Halloween', 'a darker adventure'],
+    ],
+    hook: 'The familiar becomes extraordinary. Then the monsters arrive.',
+    challenge:
+      'Turn an iconic theme park into a place you can explore freely, from its grand entrance to the small details tucked inside its streets.',
+    craft:
+      'A navigable 3D park brings together hand-built landmarks, animated attractions, moving crowds, and a fire-breathing dragon. Halloween mode transforms exploration with monsters, spreading infections, rescues, and a SWAT response.',
+    notice:
+      'An independent, non-commercial fan project, not affiliated with or endorsed by Universal. The hero is AI-generated promotional artwork. The silent film is an edited in-engine capture with staged camera moves and encounters.',
+  },
+  {
     id: 'dino-browser',
     title: 'Dino Defense',
     edition: 'Browser',
@@ -271,4 +306,4 @@ export const projects = [
       'Built for Windows. BloxClock is showcased here; a public installer is not available yet.',
   },
 ];
-export const featuredId = 'rex-encounter';
+export const featuredId = 'universal-orlando';

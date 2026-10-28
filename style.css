@@ -482,7 +482,7 @@ a span[aria-hidden] {
 }
 .project-selector {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 15px;
   margin-top: 19px;
 }
@@ -2088,6 +2088,310 @@ dialog::backdrop {
     font-size: 24px;
   }
 }
+/* Universal premiere: key art above, real captured scenes below. */
+.feature[data-project='universal-orlando'] {
+  height: 570px;
+  background: #0a1427;
+  border: 1px solid #7470a24d;
+}
+.feature[data-project='universal-orlando'] .feature-image {
+  object-position: 70% center;
+}
+.feature[data-project='universal-orlando'] .feature-shade {
+  background:
+    linear-gradient(90deg, #070e20d9, #070e2055 40%, transparent 68%),
+    linear-gradient(0deg, #070e20cc, transparent 22%);
+}
+.feature[data-project='universal-orlando'] .feature-copy {
+  padding-top: 150px;
+  width: 54%;
+}
+.feature[data-project='universal-orlando'] .feature-description {
+  max-width: 330px;
+}
+.universal-story {
+  margin-top: 80px;
+  padding-bottom: 30px;
+}
+.universal-heading {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 36px;
+}
+.universal-heading .eyebrow {
+  color: #ffd09a;
+}
+.universal-heading h2 {
+  margin-top: 20px;
+  font-size: clamp(32px, 3.7vw, 53px);
+  line-height: 1.16;
+  letter-spacing: -0.045em;
+}
+.universal-heading h2 em {
+  color: #e9c5ff;
+}
+.universal-heading > p {
+  color: var(--muted);
+  max-width: 400px;
+  font-size: 13px;
+}
+.universal-film {
+  margin-bottom: 30px;
+}
+.universal-film-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #101827;
+  text-align: left;
+}
+.universal-film-button > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s;
+}
+.universal-film-button:hover > img {
+  transform: scale(1.025);
+}
+.film-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, #050a14f2, #050a1411 70%),
+    linear-gradient(180deg, #050a14aa, transparent 24%);
+}
+.film-label {
+  position: absolute;
+  left: 32px;
+  top: 25px;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  font-weight: 750;
+}
+.film-play {
+  position: absolute;
+  top: 35%;
+  left: calc(50% - 35px);
+  border: 1px solid #ffffffab;
+  background: #121a277a;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  font-size: 33px;
+  backdrop-filter: blur(6px);
+}
+.film-title {
+  position: absolute;
+  bottom: 34px;
+  left: 34px;
+  font-size: clamp(25px, 3vw, 45px);
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+}
+.film-watch {
+  display: block;
+  margin-top: 20px;
+  font-size: 10px;
+  letter-spacing: 0.13em;
+  font-weight: 750;
+}
+.film-watch > span {
+  margin-left: 20px;
+}
+.film-caption {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 13px;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+.universal-scenes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.universal-scenes article {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #1c1e20;
+}
+.universal-scenes img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.scene-copy {
+  padding: 26px 28px 30px;
+}
+.scene-number {
+  display: block;
+  color: #ffd09a;
+  font-size: 9px;
+  letter-spacing: 0.13em;
+  font-weight: 750;
+}
+.scene-copy h3 {
+  font-size: 25px;
+  letter-spacing: -0.035em;
+  margin: 9px 0;
+}
+.scene-copy p {
+  color: var(--muted);
+  font-size: 12px;
+  max-width: 430px;
+}
+.universal-invitation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  margin-top: 28px;
+  padding: 28px;
+  background: linear-gradient(110deg, #272333, #202127);
+  border: 1px solid #514359;
+  border-radius: 6px;
+}
+.universal-invitation strong {
+  font-size: 18px;
+  font-weight: 600;
+}
+.universal-invitation p {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 4px;
+}
+.fan-note {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.8;
+  margin-top: 18px;
+  max-width: 790px;
+}
+@media (min-width: 801px) {
+  .intro {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .intro h1 {
+    font-size: clamp(50px, 5.2vw, 74px);
+  }
+}
+@media (min-width: 601px) and (max-width: 1150px) {
+  .feature[data-project='universal-orlando'] {
+    height: 520px;
+  }
+  .feature[data-project='universal-orlando'] .feature-copy {
+    width: 64%;
+    padding-top: 125px;
+  }
+}
+@media (max-width: 800px) {
+  .universal-story {
+    margin-top: 55px;
+  }
+  .universal-heading {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .universal-heading > p {
+    max-width: 560px;
+  }
+  .universal-scenes {
+    gap: 18px;
+  }
+  .scene-copy {
+    padding: 20px;
+  }
+  .scene-copy h3 {
+    font-size: 22px;
+  }
+  .universal-invitation {
+    padding: 24px;
+  }
+}
+@media (max-width: 600px) {
+  .feature[data-project='universal-orlando'] {
+    height: 610px;
+  }
+  .feature[data-project='universal-orlando'] .feature-image {
+    height: 64%;
+    object-position: 90% center;
+  }
+  .feature[data-project='universal-orlando'] .feature-shade {
+    background:
+      linear-gradient(0deg, #0a1427 36%, #0a1427cc 46%, transparent 75%),
+      linear-gradient(180deg, #0a142780, transparent 17%);
+  }
+  .feature[data-project='universal-orlando'] .feature-copy {
+    padding-top: 0;
+    width: auto;
+    bottom: 77px;
+  }
+  .feature[data-project='universal-orlando'] h2 {
+    font-size: clamp(29px, 7.7vw, 39px);
+  }
+  .feature[data-project='universal-orlando'] .feature-description {
+    max-width: 360px;
+  }
+  .universal-heading h2 {
+    font-size: clamp(29px, 7.7vw, 40px);
+  }
+  .universal-film-button {
+    aspect-ratio: 4 / 5;
+  }
+  .universal-film-button > img {
+    object-position: 55% center;
+  }
+  .film-label {
+    left: 20px;
+    right: 20px;
+    top: 20px;
+    font-size: 7px;
+  }
+  .film-title {
+    left: 20px;
+    bottom: 25px;
+    font-size: 28px;
+  }
+  .film-play {
+    top: 31%;
+  }
+  .film-caption {
+    font-size: 7px;
+    gap: 8px;
+  }
+  .film-caption > span:first-child {
+    max-width: 200px;
+  }
+  .film-caption > span:last-child {
+    white-space: nowrap;
+  }
+  .universal-scenes {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .universal-invitation {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+  }
+  .universal-invitation .button {
+    width: 100%;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -2102,6 +2406,9 @@ dialog::backdrop {
   .card-visual:hover .card-image,
   .closing-link:hover,
   .preview-start:hover {
+    transform: none;
+  }
+  .universal-film-button:hover > img {
     transform: none;
   }
 }
